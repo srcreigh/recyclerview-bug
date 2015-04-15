@@ -85,18 +85,20 @@ public class MainActivity extends ActionBarActivity implements
         }
     }
 
-    public static class ExampleVH extends RecyclerView.ViewHolder {
-        private TextView mHelloTextView;
-        public ExampleVH(View v) {
+    public static class TextVH extends RecyclerView.ViewHolder {
+        private TextView mText;
+
+        public TextVH(View v) {
             super(v);
-            mHelloTextView = (TextView)v.findViewById(android.R.id.text1);
+            mText = (TextView)v.findViewById(android.R.id.text1);
         }
+
         public void bind(String item) {
-            mHelloTextView.setText(item);
+            mText.setText(item);
         }
     }
 
-    public static class ExampleAdapter extends RecyclerView.Adapter<ExampleVH> {
+    public static class ExampleAdapter extends RecyclerView.Adapter<TextVH> {
         private final List<String> mData = new ArrayList<>();
         private final LayoutInflater mInflater;
 
@@ -105,12 +107,12 @@ public class MainActivity extends ActionBarActivity implements
         }
 
         @Override
-        public ExampleVH onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return new ExampleVH(mInflater.inflate(R.layout.list_item, viewGroup, false));
+        public TextVH onCreateViewHolder(ViewGroup viewGroup, int i) {
+            return new TextVH(mInflater.inflate(R.layout.list_item, viewGroup, false));
         }
 
         @Override
-        public void onBindViewHolder(ExampleVH vh, int i) {
+        public void onBindViewHolder(TextVH vh, int i) {
             vh.bind(mData.get(i));
         }
 
